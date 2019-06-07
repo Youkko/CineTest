@@ -1,0 +1,52 @@
+﻿@model CineTest.Entities.Results
+@{
+	ViewData["Title"] = "Home";
+	bool isSearch = !string.IsNullOrEmpty((Model.Search ?? "").Replace(" ", ""));
+}
+<div id="bodyContent" class="text-center">
+	<h1 id="title" class="display-4">Welcome to CineTest!</h1>
+	@if (!isSearch)
+	{
+		<p>Here, take a look at this list of the upcoming movies we have:</p>
+	}
+	else
+	{
+		<p>Showing results for your search, "@Model.Search". <input type="button" class="btn btn-outline-secondary btn-sm" id="clearSearch" value="Take me back to the full listing!" /></p>
+	}
+
+	<div id="movieList" class="list-group col-xl-4 float-right">
+		@{ long counter = 1;
+			string baseUrl = Model.Config.Images.Base_Url,
+				   posterPath = $"{baseUrl}/{Model.Config.Images.Poster_Sizes.Where(p => p.Contains("500")).First()}/",
+				   logoPath = $"{baseUrl}/{Model.Config.Images.Logo_Sizes.Where(p => p.Contains("500")).First()}/",
+				   profilePath = $"{baseUrl}/{Model.Config.Images.Profile_Sizes.Where(p => p.Contains("185")).First()}/",
+				   backdropPath = $"{baseUrl}/{Model.Config.Images.Backdrop_Sizes.Where(p => p.Contains("780")).First()}/",
+				   stillPath = $"{baseUrl}/{Model.Config.Images.Still_Sizes.Where(p => p.Contains("300")).First()}/";
+		}
+
+		@foreach (var movie in Model.Result)
+		{
+			string genres = string.Join(", ", Model.Genres.Genre.Where(g => movie.Genre_Ids.Any(i => i == g.Id)).Select(g => g.Name).ToList());
+			string releaseDate = movie.Release_Date.HasValue ? movie.Release_Date.Value.ToString("yyyy-MM-dd") : "Unknown";
+			if (counter == 1)
+			{
+				<a href="#" class="list-group-item list-group-item-action list-group-item-secondary active" data-movieId="@movie.Id" data-poster="@posterPath@movie.Poster_Path" data-genres="@genres" data-backdrop="@backdropPath@movie.Backdrop_Path" data-releaseDate="@releaseDate" data-overview="@movie.Overview">@movie.Title</a>
+			}
+			else
+			{
+				<a href="#" class="list-group-item list-group-item-action list-group-item-secondary" data-movieId="@movie.Id" data-poster="@posterPath@movie.Poster_Path" data-genres="@genres" data-backdrop="@backdropPath@movie.Backdrop_Path" data-releaseDate="@releaseDate" data-overview="@movie.Overview">@movie.Title</a>
+			}
+			counter++;
+		}
+	</div>
+	<div id="movieInfo" class="col-xl-8 float-left"></div>
+	@using (Html.BeginForm("Index", "", FormMethod.Post))
+	{
+		@Html.AntiForgeryToken()
+		@Html.HiddenFor(m => m.CurrentPage, Model.CurrentPage)
+		@Html.HiddenFor(m => m.MoviesPerBatch, Model.MoviesPerBatch)
+		@Html.HiddenFor(m => m.Search, "")
+		@Html.Hidden("ResetPagination", false);
+	}
+	@Html.HiddenFor(m => m.TotalPages, Model.TotalPages)
+</div>
