@@ -1,0 +1,485 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+html, body{
+	overflow: hidden;
+}
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+
+#Pagination {
+	display: inline-table;
+	width: 100%;
+	text-align: center;
+}
+
+#Pagination span{
+	margin-top: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: small;
+	font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+@media (max-width: 320px) {
+	body {
+		/* Margin bottom by footer height */
+		margin-bottom: 20px;
+	}
+
+	.footer {
+		position: absolute;
+		bottom: 0;
+		width: 120vw;
+		white-space: nowrap;
+		/* Set the fixed height of the footer here */
+		height: 1vh;
+		line-height: 1vh; /* Vertically center the text there */
+	}
+
+	#bodyContent {
+		display: inline-table;
+	}
+	#bodyContent p {
+		min-width: 320px;
+		font-size: small;
+		text-align: center;
+	}
+	#title {
+		min-width: 320px;
+		max-width: 320px;
+		margin: 0 auto;
+		font-size: x-large !important;
+	}
+	#movieList {
+		background-color: lime;
+		position: absolute;
+		max-height: 23vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+		line-height: 100%;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+	#movieList a{
+		max-width: 100%;
+		margin-left: 0px;
+		margin-right: 0px;
+		font-size: x-small;
+		line-height: 1vh;
+	}
+	#movieInfo {
+		position: absolute;
+		left: 0;
+		right: 0;
+		max-width: 300px;
+		min-width: 300px;
+		min-height: 45vh;
+		max-height: 45vh;
+		margin: 0 auto;
+		padding: 0;
+		border-radius: 10px;
+		background: black top center no-repeat;
+	}
+	#movieInfo .movieInfo {
+		background-color: rgba(255, 255, 255, 0.75);
+		min-height: 45vh;
+		max-height: 45vh;
+		min-width: 100%;
+		margin-bottom:0;
+		margin-top:0;
+		display: inline-table;
+	}
+	#movieInfo .movieInfo-title {
+		font-weight: bold;
+		font-size: large;
+		width: 100%;
+		margin-bottom: 15px;
+		background-color: rgba(128, 128, 128, 0.50);
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+	#movieInfo .movieInfo-poster {
+		max-width: 30%;
+		max-height: 42vh;
+		float: left;
+	}
+	#movieInfo .movieInfo-poster img {
+		max-width: 100%;
+		max-height: 20vh;
+		border-radius: 10px;
+		margin-right: 10px;
+		margin-left: 10px;
+	}
+	#movieInfo .movieInfo-genres {
+		position: absolute;
+		max-width: 25vw;
+		bottom: 0;
+		font-size: x-small;
+		font-style: italic;
+		text-align: left;
+		margin-right: 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	#movieInfo .movieInfo-releaseDate {
+		position: absolute;
+		font-size: x-small;
+		text-align: right;
+		width: 100%;
+		min-height: 20px;
+		bottom: -2px;
+		right: 15px;
+	}
+	#movieInfo .movieInfo-overview {
+		text-align: justify;
+		font-size: small;
+		margin-right: 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+		background-color: rgba(255, 255, 255, 0.50);
+		border-radius: 10px;
+		min-height: 32vh;
+		max-height: 32vh;
+		overflow-y: auto;
+		overflow-x: hidden
+	}
+	#movieInfo .movieInfo-releaseDate span.releaseDate-title,
+	#movieInfo .movieInfo-genres span.genres-title {
+		font-weight: bold;
+	}	
+}
+
+
+@media (min-width: 320.1px) and (max-width: 575.98px) {
+	body {
+		/* Margin bottom by footer height */
+		margin-bottom: 60px;
+	}
+
+	.footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		white-space: nowrap;
+		/* Set the fixed height of the footer here */
+		height: 60px;
+		line-height: 60px; /* Vertically center the text there */
+	}
+
+	#bodyContent {
+		display: inline-table;
+	}
+
+		#bodyContent p {
+			min-width: 375px;
+			font-size: small;
+			text-align: center;
+		}
+
+	#title {
+		min-width: 350px;
+		max-width: 350px;
+		margin: 0 auto;
+		font-size: x-large !important;
+	}
+
+	#movieList {
+		position: absolute;
+		max-width: 100%;
+		max-height: 23vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+		line-height: 100%;
+		left: 0;
+		right: 0;
+		bottom: 60px;
+	}
+
+		#movieList a {
+			max-width: calc(100% - 60px);
+			margin-left: 40px;
+			margin-right: 15px;
+			font-size: x-small;
+			line-height: 1vh;
+		}
+
+	#movieInfo {
+		position: absolute;
+		left: 0;
+		right: 0;
+		max-width: 340px;
+		min-width: 340px;
+		min-height: 43vh;
+		max-height: 43vh;
+		margin: 0 auto;
+		padding: 0;
+		border-radius: 10px;
+		background: black top center no-repeat;
+	}
+
+		#movieInfo .movieInfo {
+			background-color: rgba(255, 255, 255, 0.75);
+			min-height: 45vh;
+			max-height: 45vh;
+			min-width: 100%;
+			margin-bottom: 0;
+			margin-top: 0;
+			display: inline-table;
+		}
+
+		#movieInfo .movieInfo-title {
+			font-weight: bold;
+			font-size: large;
+			width: 100%;
+			margin-bottom: 15px;
+			background-color: rgba(128, 128, 128, 0.50);
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+		}
+
+		#movieInfo .movieInfo-poster {
+			max-width: 30%;
+			max-height: 42vh;
+			float: left;
+		}
+
+			#movieInfo .movieInfo-poster img {
+				max-width: 100%;
+				max-height: 20vh;
+				border-radius: 10px;
+				margin-right: 10px;
+				margin-left: 10px;
+			}
+
+		#movieInfo .movieInfo-genres {
+			position: absolute;
+			max-width: 25vw;
+			bottom: 0;
+			font-size: x-small;
+			font-style: italic;
+			text-align: left;
+			margin-right: 10px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		#movieInfo .movieInfo-releaseDate {
+			position: absolute;
+			font-size: x-small;
+			text-align: right;
+			width: 100%;
+			min-height: 20px;
+			bottom: -2px;
+			right: 15px;
+		}
+
+		#movieInfo .movieInfo-overview {
+			text-align: justify;
+			font-size: small;
+			margin-right: 10px;
+			padding-left: 10px;
+			padding-right: 10px;
+			background-color: rgba(255, 255, 255, 0.50);
+			border-radius: 10px;
+			min-height: 32vh;
+			max-height: 32vh;
+			overflow-y: auto;
+			overflow-x: hidden
+		}
+
+		#movieInfo .movieInfo-releaseDate span.releaseDate-title,
+		#movieInfo .movieInfo-genres span.genres-title {
+			font-weight: bold;
+		}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+	body {
+		/* Margin bottom by footer height */
+		margin-bottom: 60px;
+	}
+
+	.footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		white-space: nowrap;
+		/* Set the fixed height of the footer here */
+		height: 60px;
+		line-height: 60px; /* Vertically center the text there */
+	}
+	
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+	body {
+		/* Margin bottom by footer height */
+		margin-bottom: 60px;
+	}
+
+	.footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		white-space: nowrap;
+		/* Set the fixed height of the footer here */
+		height: 60px;
+		line-height: 60px; /* Vertically center the text there */
+	}
+	
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	body {
+		/* Margin bottom by footer height */
+		margin-bottom: 60px;
+	}
+
+	.footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		white-space: nowrap;
+		/* Set the fixed height of the footer here */
+		height: 60px;
+		line-height: 60px; /* Vertically center the text there */
+	}
+	#bodyContent {
+		display: inline-table;
+	}
+
+	#movieList {
+		min-height: 60vh;
+		max-height: 60vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+		line-height: 100%;
+	}
+
+	#movieList a {
+		margin-left: 15px;
+	}
+
+	#movieInfo {
+		min-width: 739px;
+		min-height: 60vh;
+		max-height: 60vh;
+		margin: 0;
+		padding: 0;
+		border-radius: 10px;
+		background: black top center no-repeat;
+	}
+
+	#movieInfo .movieInfo {
+		background-color: rgba(255, 255, 255, 0.75);
+		min-height: 60vh;
+		max-height: 60vh;
+		min-width: 100%;
+		margin-bottom: 0;
+		margin-top: 0;
+		display: inline-table;
+	}
+
+	#movieInfo .movieInfo-title {
+		font-weight: bold;
+		font-size: x-large;
+		width: 100%;
+		margin-bottom: 15px;
+		background-color: rgba(128, 128, 128, 0.50);
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+
+	#movieInfo .movieInfo-poster {
+		max-width: 30%;
+		max-height: 42vh;
+		float: left;
+	}
+
+		#movieInfo .movieInfo-poster img {
+			max-width: 100%;
+			max-height: 42vh;
+			border-radius: 10px;
+			margin-right: 10px;
+			margin-left: 10px;
+		}
+
+	#movieInfo .movieInfo-genres {
+		font-size: small;
+		font-style: italic;
+		text-align: justify;
+		margin-left: calc(30% + 20px);
+		margin-right: 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	#movieInfo .movieInfo-releaseDate {
+		position: absolute;
+		width: 100%;
+		min-height: 20px;
+		bottom: 10px;
+	}
+
+	#movieInfo .movieInfo-overview {
+		text-align: justify;
+		margin-right: 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+		background-color: rgba(255, 255, 255, 0.50);
+		border-radius: 10px;
+		min-height: 42vh;
+		max-height: 42vh;
+		overflow-y: auto;
+		overflow-x: hidden
+	}
+
+	#movieInfo .movieInfo-releaseDate span.releaseDate-title,
+	#movieInfo .movieInfo-genres span.genres-title {
+		font-weight: bold;
+	}	
+}
