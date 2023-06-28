@@ -9,8 +9,6 @@ The solution has a Web API and a MVC Web Application, both written in C# Asp.Net
 
 ● As I already had a linux virtual machine set up with some domains/subdomains, I could use it to deploy the solution.
 
-The app is deployed at https://cinetest.youkko.com, and the api is deployed at https://cinetestapi.youkko.com/api/ (doesn't contain any view).
-
 The Web API uses JWT Bearer Token for authentication, but for the purpose of this test, it has a fixed authentication key.
 It has one controller with two functions: List and Search.
 It returns a JSON similar to the one it takes data from, but with more results and different pagination (depending on how many movies it shows per page). Nevertherless, this pagination system needs improvements and fixes.
